@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="./css/style.css">
+        <!-- Font awesome cdn -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <title>js-array-objects-carousel</title>
+    </head>
+    <body>
+        <div id="app" class="container">
+            <div class="slider">
+                <div class="item-slider" @mouseover="stopAutoplay" @mouseleave="startAutoplay">
+                    <template v-for="(item, index) in imagesArray">
+                        <div class="item" v-if="(index == itemActive)">
+                            <img :src="item.url">
+                            <div class="image-text">
+                              <h2>{{item.titolo}}</h2>
+                              <p>{{item.descrizione}}</p>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+                <!--Pulsanti di navigazione prec e succ del carosello immagini-->
+                <div class="circles-container">
+                    <template v-for="(item, index) in imagesArray">
+                        <div class="circle" :class="{active: (index == itemActive)}" @click="goAtThatIndex(index)">
+                            
+                        </div>
+                    </template>
+                </div>
+            </div>
+            <div class="preview" @mouseover="stopAutoplay" @mouseleave="startAutoplay"> 
+                <div class="arrow prev" @click="scroll_right_down">&larr;</div>
+                <div class="arrow next" @click="scroll_left_up">&rarr;</div>
+                <template v-for="(item, index) in imagesArray">
+                    <div class="item" :class="{active: (index == itemActive)}" @click="goAtThatIndex(index)">
+                        <img :src="item.url">
+                    </div>
+                </template>
+            </div>
+        </div>
+        <!-- Vuejs cdn -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <!-- My script file -->
+        <script type="text/javascript" src="./js/script.js"></script>
+    </body>
+</html>

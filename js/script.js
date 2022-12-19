@@ -52,19 +52,24 @@ createApp({
       this.itemActive = index;
     },
     startAutoplay(){
-      this.autoplay = setInterval(()=>this.scroll_right_down(), 1000);
+      this.autoplay = setInterval(()=>this.scroll_right_down(), 3000);
     },
     stopAutoplay(){
       clearInterval(this.autoplay);
     },
     right_down_arrow(event){
+      this.stopAutoplay();
       if(event.key == "ArrowRight" || event.key == "ArrowDown"){
+        this.stopAutoplay();
         this.scroll_right_down();
+        this.startAutoplay();
      }
     },
     left_up_arrow(event){
       if(event.key == "ArrowLeft" || event.key == "ArrowUp"){
+        this.stopAutoplay();
         this.scroll_left_up();
+        this.startAutoplay();
      }
     }
   }

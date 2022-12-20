@@ -33,8 +33,7 @@ createApp({
   created() {
     this.addProperties();
     this.startAutoplay();
-    window.addEventListener('keydown', this.right_down_arrow);
-    window.addEventListener('keydown', this.left_up_arrow);
+    window.addEventListener('keydown',  this.arrowsEvents);
   },
   methods: {
     addProperties(){
@@ -57,16 +56,14 @@ createApp({
     stopAutoplay(){
       clearInterval(this.autoplay);
     },
-    right_down_arrow(event){
-      this.stopAutoplay();
+    arrowsEvents(event){
       if(event.key == "ArrowRight" || event.key == "ArrowDown"){
         this.stopAutoplay();
         this.scroll_right_down();
         this.startAutoplay();
-     }
-    },
-    left_up_arrow(event){
-      if(event.key == "ArrowLeft" || event.key == "ArrowUp"){
+      }
+
+     if(event.key == "ArrowLeft" || event.key == "ArrowUp"){
         this.stopAutoplay();
         this.scroll_left_up();
         this.startAutoplay();

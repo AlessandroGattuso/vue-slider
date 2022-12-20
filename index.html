@@ -13,15 +13,13 @@
         <div id="app" class="container">
             <div class="slider">
                 <div class="item-slider" @mouseover="stopAutoplay" @mouseleave="startAutoplay">
-                    <template v-for="(item, index) in imagesArray">
-                        <div class="item" v-if="(index == itemActive)">
-                            <img :src="item.url">
-                            <div class="image-text">
-                              <h2>{{item.titolo}}</h2>
-                              <p>{{item.descrizione}}</p>
-                            </div>
+                    <div class="item">
+                        <img :src="imagesArray[itemActive].url">
+                        <div class="image-text">
+                            <h2>{{imagesArray[itemActive].titolo}}</h2>
+                            <p>{{imagesArray[itemActive].descrizione}}</p>
                         </div>
-                    </template>
+                    </div>
                 </div>
                 <!--Pulsanti di navigazione prec e succ del carosello immagini-->
                 <div class="circles-container">

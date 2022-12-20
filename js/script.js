@@ -33,8 +33,8 @@ createApp({
   created() {
     this.addProperties();
     this.startAutoplay();
-    window.addEventListener('keyup', this.right_down_arrow);
-    window.addEventListener('keyup', this.left_up_arrow);
+    window.addEventListener('keydown', this.right_down_arrow);
+    window.addEventListener('keydown', this.left_up_arrow);
   },
   methods: {
     addProperties(){
